@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+        <head>                
+                <meta charset="utf-8">
+    			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    	
+    			<!-- Bootstrap CSS -->
+    			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+                
+                <title>Cwb data test</title>
+                <!-- 要放在src/main/webapp裡才讀取的到 -->
+                <link rel="stylesheet" type="text/css" th:href="@{css/index.css}">    
+                                	<script th:src="@{js/jquery-3.5.1.js}"></script>
+                
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>  
+                
+                <script th:src="@{js/jquery.serializejson.js}"></script>
+				<script th:src="@{js/jquery.zoom.min.js}"></script>
+ 		        <script type="text/javascript" th:src="@{js/index.js}"></script> 	                            					          
+        </head>
+     
+     <body>
+                <h1>Cwb Custom weather map</h1>
+                <!-- today weather -->
+                <div class="container-fluid">
+                <div class="row">
+                <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2 bg-success">
+                <div class="weather-loc">
+                        <img src="/home/pchome/Pictures/taiwanmap.png" id ="taiwan"/>
+                        <br />                        
+	<!--		<form id="formDemo">
+					                  
+                		<select name="selectlocation">
+                      			<option>臺北市</option>
+		                        <option>基隆市</option>
+                    			<option>新北市</option>
+                      			<option>桃園市</option>
+                      			<option>新竹市</option>
+                      			<option>新竹縣</option>
+                      			<option>苗栗縣</option>
+                      			<option>臺中市</option>
+                      			<option>彰化縣</option>
+                      			<option>南投縣</option>
+                      			<option>雲林縣</option>
+                      			<option>嘉義市</option>
+			                    <option>嘉義縣</option>
+                      			<option>臺南市</option>
+                      			<option>高雄市</option>
+                      			<option>屏東縣</option>
+                      			<option>宜蘭縣</option>
+                      			<option>花蓮縣</option>
+                      			<option>臺東縣</option>
+                      			<option>澎湖縣</option>
+                      			<option>金門縣</option>
+                      			<option>連江縣</option>
+                    		</select >
+                    		 -->
+ 
+ <form id="formDemo">
+
+ <div id="locationSeries">
+ 	<p>臺北市</p>
+ 	<ul>
+ 								<li><a href="#">臺北市</a></li>
+		                        <li><a href="#">基隆市</a></li>
+                    			<li><a href="#">新北市</a></li>
+                      			<li><a href="#">桃園市</a></li>
+                      			<li><a href="#">新竹市</a></li>
+                      			<li><a href="#">新竹縣</a></li>
+                      			<li><a href="#">苗栗縣</a></li>
+                      			<li><a href="#">臺中市</a></li>
+                      			<li><a href="#">彰化縣</a></li>
+                      			<li><a href="#">南投縣</a></li>
+                      			<li><a href="#">雲林縣</a></li>
+                      			<li><a href="#">嘉義市</a></li>
+			                    <li><a href="#">嘉義縣</a></li>
+                      			<li><a href="#">臺南市</a></li>
+                      			<li><a href="#">高雄市</a></li>
+                      			<li><a href="#">屏東縣</a></li>
+                      			<li><a href="#">宜蘭縣</a></li>
+                      			<li><a href="#">花蓮縣</a></li>
+                      			<li><a href="#">臺東縣</a></li>
+                      			<li><a href="#">澎湖縣</a></li>
+                      			<li><a href="#">金門縣</a></li>
+                      			<li><a href="#">連江縣</a></li>
+ 	</ul> 
+ </div>
+ 	<div id="timeSeries">
+							<p>選擇時間</p>
+							<ul id="selecttime">
+							</ul>
+     <!-- ->               		<select name="selecttime" id="selecttime">
+                                <option value="" disabled="" selected="">選擇時間</option>
+                    		</select -->
+                    		</div>
+                    		 </form>
+                    	<!--  /form -->
+ 
+                   		<input type="button" value="查詢" id="submit">   
+                   		<script type="text/javascript" th:src="@{js/submit.js}"></script>
+                   		<script type="text/javascript" th:src="@{js/bar.js}"></script>              
+    
+                    		<!--未來天氣 -->
+                        		<div class="weather-days">
+	                                <div class="col-day">
+                                          <span class="week-day">今日白天</span>
+                                          <br />
+    	                                      <span class="icon"><img src="https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/night/17.svg" alt="test1" title="test1"/></span>
+                                          <br />
+        	                                  <span class="tem">
+                	                                  <i class="low">0<sup>°</sup></i>
+                    	                              <i class="height">- 10<sup>°</sup></i>
+                        	                  </span>
+                            	              <span class="rain">0%</span>
+	                                </div>
+                                
+                                <div class="col-day">
+                                          <span class="week-day">今晚明晨</span>
+                                          <br />
+                                          	<span class="icon"><img src="https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/18.svg" alt="default" title="default"/></span>
+                                          <br />
+                                          	<span class="tem">
+                                                	  <i class="low">0<sup>°</sup></i>
+                                                  	<i class="height">- 10<sup>°</sup></i>
+                                          </span>
+                                          <span class="rain">0%</span>
+                                </div>
+
+                                <div class="col-day">
+                                          <span class="week-day">明日白天</span>
+                                          <br />
+                                          <span class="icon"><img src="https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/night/16.svg" alt="default" title="default"/></span>
+                                          <br />
+                                          <span class="tem">
+                                                  <i class="low">0<sup>°</sup></i>
+                                                  <i class="height">- 10<sup>°</sup></i>
+                                          </span>
+                                           <span class="rain">0%</span>
+                                </div>                
+                                 <!-- div class="pic_col">
+
+                                        <img src="/home/pchome/Pictures/rader_image_test.png">
+                                 </div -->
+                        </div>
+                </div>
+                <!-- weather picture-->
+                <div class="pic-col">
+                        <div class="weather-pic">
+                                <div class="cube-head">雷達回波圖</div>
+                                        <div class="cube-body">
+                                                <!--::before -->
+                                        <img src="https://opendata.cwb.gov.tw/fileapi/opendata/MSC/O-A0058-001.png">
+                                        </div>
+                        </div>
+                        <div class="weather-pic">
+                                <div class="cube-head">累積雨量圖</div>
+                                        <div class="cube-body">
+                                                <!--::before -->
+                                        <img src="https://opendata.cwb.gov.tw/fileapi/opendata/DIV2/O-A0040-002.jpg">
+                                        </div>
+                        </div>
+                        <div class="weather-pic">
+                                <div class="cube-head">天氣雲圖</div>
+                                        <div class="cube-body">
+                                                <!--::before -->
+                                        <img src="https://opendata.cwb.gov.tw/fileapi/opendata/MFC/F-C0035-001.jpg">
+                                </div>
+                        </div>
+                        <div class="weather-pic">
+                                <div class="cube-head">定量降雨圖</div>
+                                        <div class="cube-body">
+                                          <!--::before -->
+                                        <img src="https://opendata.cwb.gov.tw/fileapi/opendata/MFC/F-C0035-015.png">
+                                        </div>
+                        </div>
+                </div>
+         </div>
+         </div>
+         </div>
+                <!-- script type="text/javascript" th:src="@{js/test2.js}"></script -->
+               <script>
+                $(document).ready(function(){
+					$('.weather-pic').zoom({
+					magnify: 0.7
+					});
+				});             
+                	</script>     
+                	<!--  script th:src="@{js/jquery-3.5.1.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script -->   
+     </body>
+</html>
+
+                

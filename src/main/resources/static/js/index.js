@@ -6,11 +6,14 @@ var now = new Date();
          url:"default",
        //  data:jsonString,         
          success:function(data){
-        	    $("#selecttime").append('<li><a href="#">' + (now.getMonth()+1) + '-' + (now.getDate()-1) + '</a></li>');
-        	 	$("#selecttime").append('<li><a href="#">' + (now.getMonth()+1) + '-' + (now.getDate()) + '</a></li>');
-        	 	$("#selecttime").append('<li><a href="#">'  + (now.getMonth()+1) + '-' + (now.getDate()+1) + '</a></li>');
+  //      	    $("#selecttime").append('<li><a href="#">' + (now.getMonth()+1) + '-' + (now.getDate()-1) + '</a></li>');
+   //     	 	$("#selecttime").append('<li><a href="#">' + (now.getMonth()+1) + '-' + (now.getDate()) + '</a></li>');
+    //    	 	$("#selecttime").append('<li><a href="#">'  + (now.getMonth()+1) + '-' + (now.getDate()+1) + '</a></li>');
    //			$("#selecttime").append('<li><a href="#" value=' + now.getFullYear() + '-' + (now.getMonth()+1) + '-' + (now.getDate()+1)  + '>'  + (now.getMonth()+1) + '-' + (now.getDate()+1) + '</a></li>');
-  //      	 	$("#selecttime").append('<option value=' + now.getFullYear()  + '-' + (now.getMonth()+1) + '-' + (now.getDate()+1) + '>'  + (now.getMonth()+1) + '/' + (now.getDate()+2) + '</option>');
+       	 	$("#selecttime").append('<option value=' + now.getFullYear()  + '-' + (now.getMonth()+1) + '-' + (now.getDate()-1) + '>'  + (now.getMonth()+1) + '/' + (now.getDate()-1) + '</option>');
+       	 $("#selecttime").append('<option value=' + now.getFullYear()  + '-' + (now.getMonth()+1) + '-' + (now.getDate()) + '>'  + (now.getMonth()+1) + '/' + (now.getDate()) + '</option>');
+       	$("#selecttime").append('<option value=' + now.getFullYear()  + '-' + (now.getMonth()+1) + '-' + (now.getDate()+1) + '>'  + (now.getMonth()+1) + '/' + (now.getDate()+1) + '</option>');
+       	 	
               for(var i=0;i<3;i++) {            
               $(".height").get(i).innerHTML = " - " + data[i][0] + "<sup>°</sup>";
               $(".low").get(i).innerHTML = data[i][1]  +"<sup>°</sup>";

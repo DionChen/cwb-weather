@@ -3,14 +3,14 @@ $("#submit").click(function ()
 {
   var json=$("#formDemo").serializeJSON();
 var jsonString = JSON.stringify(json);
-var test1 = '{"selectlocation": "' +  $("#locationSeries p").text() + '","selecttime":"' + now .getFullYear() + '-' + $("#timeSeries p").text() + '"}' ;
+//var test1 = '{"selectlocation": "' +  $("#locationSeries p").text() + '","selecttime":"' + now .getFullYear() + '-' + $("#timeSeries p").text() + '"}' ;
 //{"selectlocation": "臺北市","selecttime":2020-8-22"}
    $.ajax({
          contentType: "application/json; charset=utf-8",
          type:"post",
          url:"submit",
-         data: test1,
-         //data: "hello1 hello2",
+     //    data: test1,
+           data: jsonString,
      //    data: {"selectLocation":"bbb","selecttime": "ccc" },
        //  data: {selectLocation:$('#locationSeries p').attr('value') },
          success:function(data){

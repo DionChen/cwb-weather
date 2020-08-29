@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/*@charset "UTF-8";
 .zoomPad{
 	position:relative;
 	float:left;
@@ -51,7 +51,7 @@
 	left:0px;
 	top:0px;
 	background:#FFF;
-	/*opacity:0.5;*/
+
 	z-index:5000;
 	width:100%;
 	height:100%;
@@ -114,3 +114,4 @@
   position:absolute;
   display:block;
 }
+ */

@@ -19,17 +19,17 @@
  		        <script type="text/javascript" th:src="@{js/index.js}"></script> 	                            					          
         </head>
      
-     <body>                
-                <h1 class="font-weight-bold">Cwb Custom weather map</h1>
+     <body>
+                <h1>Cwb Custom weather map</h1>
                 <!-- today weather -->
                 <div class="container-fluid">
                 <div class="row">
-                <div class="col-md-6">
-                <div class="weather-loc">                
-                        <img id="taiwan" src="../picture/taiwan.png"/>
+                <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2 bg-success">
+                <div class="weather-loc">
+                        <img src="/home/pchome/Pictures/taiwanmap.png" id ="taiwan"/>
                         <br />                        
-
-	<form id="formDemo">				                  
+	<!--		<form id="formDemo">
+					                  
                 		<select name="selectlocation">
                       			<option>臺北市</option>
 		                        <option>基隆市</option>
@@ -54,8 +54,9 @@
                       			<option>金門縣</option>
                       			<option>連江縣</option>
                     		</select >
-                    		
- <!-- form id="formDemo">
+                    		 -->
+ 
+ <form id="formDemo">
 
  <div id="locationSeries">
  	<p>臺北市</p>
@@ -87,23 +88,21 @@
  	<div id="timeSeries">
 							<p>選擇時間</p>
 							<ul id="selecttime">
-							</ul -->
-                   		<select name="selecttime" id="selecttime">
+							</ul>
+     <!-- ->               		<select name="selecttime" id="selecttime">
                                 <option value="" disabled="" selected="">選擇時間</option>
-                    		</select>
-                    		<!--  /div -->
+                    		</select -->
+                    		</div>
                     		 </form>
                     	<!--  /form -->
  
                    		<input type="button" value="查詢" id="submit">   
                    		<script type="text/javascript" th:src="@{js/submit.js}"></script>
-                   		<script type="text/javascript" th:src="@{js/bar.js}"></script>                    
+                   		<script type="text/javascript" th:src="@{js/bar.js}"></script>              
     
                     		<!--未來天氣 -->
                         		<div class="weather-days">
 	                                <div class="col-day">
-	                                <br/>
-	                                <br/>
                                           <span class="week-day">今日白天</span>
                                           <br />
     	                                      <span class="icon"><img src="https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/night/17.svg" alt="test1" title="test1"/></span>
@@ -116,8 +115,6 @@
 	                                </div>
                                 
                                 <div class="col-day">
-                                <br/>
-                                <br/>
                                           <span class="week-day">今晚明晨</span>
                                           <br />
                                           	<span class="icon"><img src="https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/18.svg" alt="default" title="default"/></span>
@@ -130,8 +127,6 @@
                                 </div>
 
                                 <div class="col-day">
-                                <br/>
-                                <br/>
                                           <span class="week-day">明日白天</span>
                                           <br />
                                           <span class="icon"><img src="https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/night/16.svg" alt="default" title="default"/></span>
@@ -147,49 +142,41 @@
                                         <img src="/home/pchome/Pictures/rader_image_test.png">
                                  </div -->
                         </div>
-                </div>              
-           </div>
-                
+                </div>
                 <!-- weather picture-->
-                <div class="col-md-4">
-                        <div class="local-weather">
+                <div class="pic-col">
                         <div class="weather-pic">
-                        <br/>
-                        <br/>
-                                <div class="cube-head">雷達回波圖</div>         
-                                        <div class="cube-body">                                            
-                                        	<img src="https://opendata.cwb.gov.tw/fileapi/opendata/MSC/O-A0058-001.png">
-                                        </div>
-                         </div>
-                          <div class="weather-pic">
-                          <br/>
-                          <br/>                   
-                               		<div class="cube-head">累積雨量圖</div>
-                                        <div class="cube-body">                                             
-                                      		  <img src="https://opendata.cwb.gov.tw/fileapi/opendata/DIV2/O-A0040-002.jpg">
+                                <div class="cube-head">雷達回波圖</div>
+                                        <div class="cube-body">
+                                                <!--::before -->
+                                        <img src="https://opendata.cwb.gov.tw/fileapi/opendata/MSC/O-A0058-001.png">
                                         </div>
                         </div>
                         <div class="weather-pic">
-                        <br/>
-                        <br/>
+                                <div class="cube-head">累積雨量圖</div>
+                                        <div class="cube-body">
+                                                <!--::before -->
+                                        <img src="https://opendata.cwb.gov.tw/fileapi/opendata/DIV2/O-A0040-002.jpg">
+                                        </div>
+                        </div>
+                        <div class="weather-pic">
                                 <div class="cube-head">天氣雲圖</div>
-                                        <div class="cube-body">                                           
+                                        <div class="cube-body">
+                                                <!--::before -->
                                         <img src="https://opendata.cwb.gov.tw/fileapi/opendata/MFC/F-C0035-001.jpg">
                                 </div>
                         </div>
                         <div class="weather-pic">
-                        <br/>
-                        <br/>
                                 <div class="cube-head">定量降雨圖</div>
-                                        <div class="cube-body">                                    
+                                        <div class="cube-body">
+                                          <!--::before -->
                                         <img src="https://opendata.cwb.gov.tw/fileapi/opendata/MFC/F-C0035-015.png">
                                         </div>
                         </div>
-                        
-                        </div>                                                
+                </div>
          </div>
          </div>
-         </div>                
+         </div>
                 <!-- script type="text/javascript" th:src="@{js/test2.js}"></script -->
                <script>
                 $(document).ready(function(){

@@ -12,7 +12,9 @@
                         margin: 0;
                         padding:0;
                         font-family:zh-CN;
-                        font-size:20px;
+                        font-size:23px;
+                        color:#747a82;
+                        border-radius:10px;
                 }
                   h1{
                         text-align:     center;
@@ -30,9 +32,9 @@
                         left:   1%;
                 }
                 body{
-/*                       border: 1px outset  gray;
-                        border-radius: 50px;
-                        */                    
+                		background: rgba(72,113,165,1);
+/*                       
+                                           
                         background: #fff url(../picture/pin-board.png) center 0px  no-repeat;
                         background-size: cover;
                         background-position: center 0; 
@@ -42,28 +44,23 @@
       					-o-background-size: cover;  
       					-moz-background-size: cover;  
       					-ms-background-size: cover;
-                        
+           */             
 
                 }
               
                 .weather-loc{
                         float:  left;
-                        text-align:  center;
+                        text-align:  center;  
+                        background: #9bc7e6;    
+                        border-radius:10px;   
+                         width:  775px;
+                         margin: 5px;
                 }
-
               select,option,input{
-                		width:;
-                		height:;
                         margin:    25px;
                         padding:  10px;                      
                         border:    8px;
-                        background: rgb(181,189,200);  
-                        background: -moz-linear-gradient(top,  rgba(181,189,200,1) 0%, rgba(130,140,149,1) 36%, rgba(40,52,59,1) 100%);
-                        background: -webkit-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); 
-                        background: linear-gradient(to bottom,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); 
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); 
-                        color:  black;
-
+    					background: #d1ecff; 					   
                 }  
                 #locationSeries{width:186px; margin:50px auto; position:relative} 
    				#locationSeries p{width:120px; height:24px; line-height:24px; padding-left:5px; padding-right:13px;  
@@ -87,43 +84,44 @@
 /*				#submit{ width:138px; height:26px;line-height:24px; border:1px solid #a9c9e2;
 							 background:#e8f5fe; color:#807a62; cursor:pointer}			 */
                  .col-day{
-                        width:  200px;
-                        height: 295px;
+                        width:  225px;
+                        height: 222px;
  /*                       border: 1px outset  gray; */
-                        margin: 20px;
+                        margin: 10px;
   /*                      border-radius: 50px; */
                         float:left;
-                    background: url("../picture/memo.png") center no-repeat;    
-                    background-size: 200px 295px;   
+                /*    background: url("../picture/memo.png") center no-repeat;    
+                    background-size: 200px 295px; */
+                    background: #d1ecff;   
                 }
+
                   .weather-days img{
-                        width:100px;
-                        height:100px;
+                        width:150px;
+                        height:150px;
                         margin: 5px;
-                }                                   
-               .local-weather{              
+                }                                                  
+               .local-weather{    
+               width:  775px;      
                 text-align: center;
                 float:left;
+                background: #9bc7e6;
+                margin: 5px;
                 }
                 .weather-pic{
-                		width:  220px;
+                		width:  350px;
                         height: 400px;
  /*                       border: 1px outset  gray; */
                         margin: 10px;
   /*                      border-radius: 50px; */
                         float:left;
-                        background: url("../picture/memo2_tall.png") center no-repeat;
+          /*              background: url("../picture/memo2_tall.png") center no-repeat;
                         background-size : 230px 400px;
-                        text-indent : -36px ;
-                       	padding-top: 7px; 
-                       	padding-left: 45px;
+                        text-indent : -36px ; */
+                       	background: #d1ecff;
                 }
                 .weather-pic img{
-                 		width:  180px;
-                        height: 260px;                      
-                } 
-                 .cube-head{
-                 transform: skew(-40deg);
+                 		width:  300px;
+                        height: 350px;                      
                 }
 		/* these styles are for the demo, but are not required for the plugin */
 	

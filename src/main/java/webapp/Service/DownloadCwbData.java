@@ -42,7 +42,7 @@ public class DownloadCwbData {
         private static final SimpleDateFormat dateFormat = new
                 SimpleDateFormat("HH:mm:ss");
         
-        @Scheduled(cron = "0 0 * * * ?")
+        @Scheduled(cron = "0 * * * * ?")
         // sec min hour day month 1-7 Year
         @Transactional
         public void cwbSevenDayWeatherOverview() throws ParseException, SQLException, ClientProtocolException, IOException {
@@ -76,7 +76,7 @@ public class DownloadCwbData {
            StringBuilder sb = new StringBuilder();         
            // InputStream to StringBuilder
             while (( inByte = isr.read()) != -1) {
-               sb.append((char) inByte);
+               sb.append((char) inByte);    
             }
             // change into JsonObject
             JSONObject object = new JSONObject(sb.toString());
@@ -97,16 +97,18 @@ public class DownloadCwbData {
                     hTemp [j]       = rawData.getJSONObject(i).getJSONArray("weatherElement").getJSONObject(3).getJSONArray("time").getJSONObject(j).getJSONObject("elementValue").getString("value");
                     lTemp [j]        = rawData.getJSONObject(i).getJSONArray("weatherElement").getJSONObject(4).getJSONArray("time").getJSONObject(j).getJSONObject("elementValue").getString("value");
                     wx[j]              = rawData.getJSONObject(i).getJSONArray("weatherElement").getJSONObject(12).getJSONArray("time").getJSONObject(j).getJSONArray("elementValue").getJSONObject(1).getString("value");
-                   System.out.println(startTimeCache);
-                    if(startTimeCache =="*12:00:00*" )
-                       continue;
+
                     //日期格式轉換
                     Date  startTemp           = inputDateFormat.parse(startTimeCache);
                     startTime[j]            = transforDateFormat.format(startTemp);
                     Date endTemp           = inputDateFormat.parse(endTimeCache);
-                    endTime[j]           = transforDateFormat.format(endTemp);
-                    System.out.println(startTimeCache);
-               
+                    endTime[j]           = transforDateFormat.format(endTemp); 
+                    // skip time
+                    if(startTime[j].contains("12:00:00"))  {
+                        System.out.println("skip" + startTime[j] );
+                        continue;
+                    }
+                        
                      entityManager.createNativeQuery("insert ignore into cwbdata (location,maxtemp,mintemp,pop,starttime,endtime,wx) VALUES (?,?,?,?,?,?,?)")
                     .setParameter(1,locationName[i] )
                     .setParameter(2, hTemp[j])
